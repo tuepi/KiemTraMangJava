@@ -22,19 +22,26 @@ public class KiemTraMang {
         System.out.printf("Nhập giá trị cần tìm trong mảng: ");
         int a = scanner.nextInt();
         int z;
+        boolean check = false;
         for (z = 0; z < arr.length; z++) {
             if (a == arr[z]) {
                 System.out.println(a + " có vị trí thứ " + (z + 1) + " trong mảng.");
+                check = true;
                 break;
             }
         }
-        System.out.println("Xóa Phần tử vừa nhập có trong mảng thì mảng mới là: ");
-        for (int i = z; i < arr.length - 1; i++) {
-            arr[i] = arr[i + 1];
+        if (check == false){
+            System.out.println("Số vừa nhập không có trong mảng.");
         }
-        arr[arr.length - 1] = 0;
-        for (int j = 0; j < arr.length; j++) {
-            System.out.println(arr[j]);
+        if (check == true) {
+            System.out.println("Xóa Phần tử vừa nhập có trong mảng thì mảng mới là: ");
+            for (int i = z; i < arr.length - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            arr[arr.length - 1] = 0;
+            for (int j = 0; j < arr.length; j++) {
+                System.out.println(arr[j]);
+            }
         }
         System.out.println("Nhập vào giá trị cần thêm vào mảng: ");
         int b = scanner.nextInt();
